@@ -10,9 +10,11 @@ node {
      myTestContainer.pull()
      myTestContainer.inside {
        dir("basics"){
+       sh '''
        sh 'pwd'
        sh 'npm install --only=dev'
        sh 'npm test'
+       '''
      }
    }
    stage('test with a DB') {
