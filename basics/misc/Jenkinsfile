@@ -22,6 +22,7 @@ node {
        def app = docker.build("izzysu/docker-nodejs-demo:${commit_id}", '.').push()
      }
    }
+   }
    stage('docker run') {
      sh label: '', script: """docker rm docker_test || true
       docker run --rm -tid --name docker_test -p 3000 izzysu/docker-nodejs-demo:${commit_id}
