@@ -10,6 +10,7 @@ node {
      myTestContainer.pull()
      myTestContainer.inside {
        sh 'cd basics'
+       sh 'pwd'
        sh 'npm install --only=dev'
        sh 'npm test'
      }
