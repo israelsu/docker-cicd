@@ -1,6 +1,6 @@
 job('NodeJS Docker example') {
     scm {
-        git('git://github.com/yanivomc/docker-cicd.git','master') {  node -> // is hudson.plugins.git.GitSCM
+        git('git://github.com/izzysu/docker-cicd.git','master') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('jenkins-dsl@devophift.work')
         }
@@ -12,9 +12,9 @@ job('NodeJS Docker example') {
     
     steps {
         dockerBuildAndPublish {
-            repositoryName('yanivomc/amdocsapp')
+            repositoryName('izzysu/docker-cicd')
             tag('${GIT_REVISION,length=9}')
-            registryCredentials('yaniv-dockerhub')
+            registryCredentials('dockerhub')
             buildContext('./basics/')
             forcePull(false)
             forceTag(false)
