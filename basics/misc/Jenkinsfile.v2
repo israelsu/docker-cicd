@@ -9,10 +9,13 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
+       sh '''
        sh 'cd basics'
        sh 'pwd'
+       sh 'ls'
        sh 'npm install --only=dev'
        sh 'npm test'
+       ...
      }
    }
    stage('test with a DB') {
