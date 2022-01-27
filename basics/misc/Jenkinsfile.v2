@@ -15,6 +15,7 @@ node {
        sh 'npm install --only=dev'
        sh 'npm test'
        '''
+       }
      }
    }
    stage('test with a DB') {
